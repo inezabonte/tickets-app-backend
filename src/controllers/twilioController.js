@@ -29,7 +29,7 @@ export const checkVerification = async (req, res, next) => {
     try {
         const checkToken = await client.verify.services(SERVICE_ID)
         .verificationChecks
-        .create({to: phoneNumber, code: token})
+        .create({to: `+250${phoneNumber}`, code: token})
 
         res.status(200).json({status: 200, message: checkToken.status})
     } catch (error) {
